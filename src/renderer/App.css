@@ -1,0 +1,132 @@
+@import 'bootstrap/dist/css/bootstrap.min.css';
+@import "https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css";
+@import "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/ui-lightness/jquery-ui.css";
+html,body{
+  background:black;
+}
+.splide__slide{
+  height:100vh;
+  width:100vw;
+}
+.splide__slide img{
+  height:100vh;
+  width:100vw;
+  object-fit:cover;
+
+}
+
+
+.splide__slide video{
+  object-fit:cover;
+  height:100vh;
+  width:100vw;
+}
+
+.splide__progress{
+  position:fixed;
+  bottom:0;
+  left:0;
+  width:100%;
+  z-index:999;
+}
+
+.leaderboard-background{
+  background-image:url("static/background-portrait.png");
+  background-size:cover;
+  background-position:center;
+  height:100vh;
+  width:100vw;
+  text-align:center;
+}
+.leaderboard img{
+  width:initial;
+  height:initial;
+  max-width:200px;
+}
+.leaderboard h1{
+  color:white;
+
+}
+
+h1{
+	font-size:8.5rem;
+	font-family:"headline-gothic-atf";
+		padding:0;
+		letter-spacing:-0px;
+
+background-color:#f69832;
+background: linear-gradient(180deg, #fde63a, #f48330, #f48330);
+color:black;
+-webkit-background-clip: text;
+-moz-background-clip: text;
+-webkit-text-fill-color: transparent;
+-moz-text-fill-color: transparent;
+line-height:0.8;
+margin-bottom:-0px;
+padding-top:20px;
+}
+
+
+h2{
+	font-size:7rem;
+	font-family:"headline-gothic-atf";
+	line-height:1;
+	padding:0;
+	margin:0;
+	letter-spacing:1.5px;
+	background-color:#f69832;
+
+	background: linear-gradient(180deg, #fde63a, #f48330, #f48330);
+	color:black;
+	-webkit-background-clip: text;
+	-moz-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	-moz-text-fill-color: transparent;
+	line-height:1;
+	font-weight:bold;
+	-webkit-text-stroke: 0.0055px black;
+}
+h3{
+	font-size:2em;
+	font-family:"headline-gothic-atf";
+	line-height:1;
+	padding:0;
+margin:0;
+letter-spacing:0.5px;
+
+}
+
+
+
+.leaderboard-content{
+  background:white;
+  color:black;
+
+  width:80%;
+margin:0 auto;
+border-radius:20px;
+padding:2em;
+margin:2em auto;
+}
+
+.leaderboard-item{
+  display:flex;
+  align-items:center;
+  justify-content:space-around;
+  text-align:left;
+  font-family:"headline-gothic-atf";
+  font-size:5em;
+  line-height:1;
+
+}
+.leaderboard-item span:nth-child(1){
+flex:1;
+}
+.leaderboard-item span:nth-child(2){
+flex:4;
+}
+
+.leaderboard-item span:nth-child(3){
+flex:1;
+text-align:right;
+}

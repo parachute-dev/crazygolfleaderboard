@@ -6,7 +6,7 @@ export const debugInfo = () =>{
   return details;
 }
 
-export const baseDataUrl = "https://wordpress-208309-3651545.cloudwaysapps.com/leaderboard";
+export const baseDataUrl = "https://wordpress-208309-3651545.cloudwaysapps.com/leaderboard?v=5";
 
 export const getCurrentClub = (clubs, currentClub, localIP) => {
 
@@ -20,7 +20,7 @@ export const getCurrentClub = (clubs, currentClub, localIP) => {
 
 }
 
-export const  getCurrentClubName = (clubs, currentClub, localIP) =>{
+export const getCurrentClubName = (clubs, currentClub, localIP) =>{
   var club = getCurrentClub(clubs, currentClub, localIP);
   if(club != null){
     console.log("NAME");

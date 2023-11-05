@@ -11,7 +11,6 @@ export default function App() {
   const dispatch = React.useContext(GlobalDispatchContext);
   const state = React.useContext(GlobalStateContext);
 
-
   return (
       <Routes>
       <Route path="/" element={< Index />}/>

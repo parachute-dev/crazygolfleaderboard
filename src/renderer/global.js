@@ -6,7 +6,7 @@ export const debugInfo = () =>{
   return details;
 }
 
-export const baseDataUrl = "https://wordpress-208309-3651545.cloudwaysapps.com/leaderboard?v=5";
+export const baseDataUrl = "https://api.scorecard.volcanofalls.co.uk/";
 
 export const getCurrentClub = (clubs, currentClub, localIP) => {
 

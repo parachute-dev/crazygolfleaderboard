@@ -28,15 +28,7 @@ const Index = () => {
     setShow(false);
   };
 
-  const handleLocationChange = (location) => {
-    dispatch({ type: 'SET_CURRENT_LOCATION', payload: location });
-  };
-  const handleCourseChange = (location) => {
-    dispatch({ type: 'SET_CURRENT_COURSE', payload: location });
-  };
-  const handleOrientationChange = (index) => {
-    dispatch({ type: 'SET_ORIENTIATION', payload: index });
-  };
+
 
   const handleShow = () => {
     setShow(true);
@@ -53,8 +45,21 @@ const Index = () => {
     window.electron.store.set('PDQ', value);
   };
 
+
+  const getCurrentLocation = () =>{
+    if (state.location != null){
+      return state.clubs[state.location].code;
+    }
+  }
+
+  const getCurrentCourse = () =>{
+    if (state.course != null){
+      return state.course;
+    }
+  }
+
   const getAds = () => {
-    fetch(`${baseDataUrl}`, {
+    fetch(`${baseDataUrl}leaderboard?location=${getCurrentLocation()}&course=${getCurrentCourse()}`, {
       headers: {
         'content-type': 'text/json',
       },
@@ -78,11 +83,22 @@ const Index = () => {
   };
   useEffect(() => {
     getAds();
-  }, []);
+  }, [state.location,state.course]);
 
   useInterval(() => {
     getAds();
   }, 60000);
+
+  const handleLocationChange = (location) => {
+    dispatch({ type: 'SET_CURRENT_LOCATION', payload: location });
+  };
+  const handleCourseChange = (location) => {
+    dispatch({ type: 'SET_CURRENT_COURSE', payload: location });
+  };
+  const handleOrientationChange = (index) => {
+    dispatch({ type: 'SET_ORIENTIATION', payload: index });
+  };
+
 
   const renderAds = () => {
     if (state.ads != null) {
@@ -179,6 +195,9 @@ const Index = () => {
                       {location.name}
                     </option>
                   ))}
+                    <option value="all">
+                      All Courses
+                    </option>
               </select>
             </div>
 

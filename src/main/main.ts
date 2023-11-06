@@ -23,6 +23,11 @@ class AppUpdater {
     autoUpdater.checkForUpdatesAndNotify();
   }
 }
+let updateInterval = null;
+
+autoUpdater.logger = log
+
+
 
 let mainWindow: BrowserWindow | null = null;
 
@@ -86,7 +91,7 @@ const createWindow = async () => {
   mainWindow = new BrowserWindow({
     width: 1920,
     height: 1080,
-    alwaysOnTop:false, // enable always on top to prevent other windows from appearing above it
+    alwaysOnTop:true, // enable always on top to prevent other windows from appearing above it
     kiosk: true, // enable kiosk mode, makes it full screen and what not
     icon: getAssetPath('icon.png'),
     webPreferences: {
@@ -139,10 +144,18 @@ app.on('window-all-closed', () => {
   }
 });
 
+autoUpdater.on("update-available", (_event, releaseNotes, releaseName) => {
+  autoUpdater.quitAndInstall()
+});
+
+
+
 app
   .whenReady()
   .then(() => {
     createWindow();
+    updateInterval = setInterval(() => autoUpdater.checkForUpdatesAndNotify(), 60000);
+
     app.on('activate', () => {
       // On macOS it's common to re-create a window in the app when the
       // dock icon is clicked and there are no other windows open.

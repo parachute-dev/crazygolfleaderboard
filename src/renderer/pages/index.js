@@ -38,12 +38,6 @@ const Index = () => {
 
   const state = React.useContext(GlobalStateContext);
 
-  const navigate = useNavigate();
-
-  const handleInputChange = (value) => {
-    dispatch({ type: 'CHANGE_PDQ', payload: value });
-    window.electron.store.set('PDQ', value);
-  };
 
 
   const getCurrentLocation = () =>{
@@ -143,7 +137,7 @@ const Index = () => {
           autoplay: true,
           resetProgress: false,
           pauseOnHover: false,
-          video: { autoplay: true, mute: true, loop: false },
+          video: { autoplay: true, mute: true, loop: true},
         }}
       >
         <SplideTrack>
